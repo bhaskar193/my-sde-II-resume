@@ -2,6 +2,7 @@
 
 % Packages
 \usepackage[margin=0.36in, top=0.25in, bottom=0.25in]{geometry}
+\usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
@@ -14,8 +15,6 @@
 % Colors
 \definecolor{primary}{RGB}{99, 91, 255}
 \definecolor{darktext}{RGB}{50, 50, 50}
-\definecolor{sectionbg}{RGB}{226, 226, 226}
-\definecolor{sectiontext}{RGB}{105, 105, 105}
 
 % Formatting
 \pagestyle{empty}
@@ -25,42 +24,39 @@
 \columnratio{0.72}
 \emergencystretch=2em
 
+% Section formatting
+\titleformat{\section}
+{\color{primary}\normalsize\bfseries\uppercase}
+{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
 % Custom commands
-\newcommand{\resumeSection}[1]{%
-    \vspace{3pt}%
-    \noindent\colorbox{sectionbg}{%
-        \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-            \color{sectiontext}\fontsize{10.2}{10.4}\selectfont\bfseries\MakeUppercase{#1}%
-        }%
-    }\par\vspace{2pt}%
-}
-\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\resumeItem}[1]{\item[\textcolor{primary}{\textbullet}] #1}
 \newcommand{\skillCategory}[2]{\textbf{#1:} #2}
 
 \begin{document}
 
 % Header
-{\centering
-    {\huge Manoj Kumar}\\[3pt]
+\begin{center}
+    {\LARGE\bfseries Manoj Kumar}\\[4pt]
     \small
     \faPhone\ +91 9896407925 \quad
     \faEnvelope\ \href{mailto:manojkumar.nvsd@gmail.com}{manojkumar.nvsd@gmail.com} \quad
     \faLinkedin\ \href{https://linkedin.com/in/manoj-kumar9896}{manoj-kumar9896} \quad
-    \faGithub\ \href{https://github.com/manoj9896}{manoj9896}\par
-}
-\noindent\rule{\textwidth}{0.4pt}
-\vspace{2pt}
+    \faGithub\ \href{https://github.com/manoj9896}{manoj9896}
+\end{center}
 
 \begin{paracol}{2}
 \RaggedRight
-\fontsize{8}{8.85}\selectfont
 
 % Summary
-\resumeSection{Summary}
+\section{Summary}
+\small
 AI Full-stack software engineer with 3+ years building scalable cloud applications. Expertise in microservices architecture, CI/CD pipelines, Kubernetes orchestration, and enterprise SaaS. Proven track record of designing reliable, multi-tenant services processing millions of events across distributed systems.
 
 % Work Experience
-\resumeSection{Work Experience}
+\section{Work Experience}
+\small
 
 \textbf{Senior Developer} \hfill April 2025 -- Present\\
 \textit{SAP Labs India -- Bangalore}
@@ -97,7 +93,8 @@ AI Full-stack software engineer with 3+ years building scalable cloud applicatio
 \end{itemize}
 
 % Projects
-\resumeSection{Key Projects}
+\section{Key Projects}
+\small
 
 \textbf{S/4HANA Reference Agents}\\
 \textit{Python, LangGraph, Docker, Kubernetes/Kyma, GitHub Actions}
@@ -116,16 +113,17 @@ AI Full-stack software engineer with 3+ years building scalable cloud applicatio
 
 \switchcolumn
 \RaggedRight
-\fontsize{8}{8.85}\selectfont
 
 % Education
-\resumeSection{Education}
+\section{Education}
+\small
 \textbf{Indian Institute of Technology, Kanpur}\\
 B.Tech in Electrical Engineering (GPA: 8.5/10)\\
 2018 -- 2022
 
 % Skills
-\resumeSection{Technical Skills}
+\section{Technical Skills}
+\small
 \skillCategory{Languages}{Python, Java, TypeScript, JavaScript, SQL, C++}\\[1pt]
 \skillCategory{Cloud \& DevOps}{Kubernetes/Kyma, Docker, GitHub Actions, Jenkins, CI/CD Pipelines, Azure, AWS, SAP BTP}\\[1pt]
 \skillCategory{Backend}{Spring Boot, FastAPI, Express, Node.js, REST APIs, OData, GraphQL, Microservices}\\[1pt]
