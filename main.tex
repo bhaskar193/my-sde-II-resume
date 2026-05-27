@@ -1,57 +1,70 @@
 \documentclass[10pt,a4paper]{article}
 
 % Packages
-\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
-\usepackage{titlesec}
+\usepackage[margin=0.36in, top=0.25in, bottom=0.25in]{geometry}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{xcolor}
 \usepackage{parskip}
+\usepackage{paracol}
+\usepackage{ragged2e}
+\usepackage{microtype}
 
 % Colors
 \definecolor{primary}{RGB}{99, 91, 255}
 \definecolor{darktext}{RGB}{50, 50, 50}
+\definecolor{sectionbg}{RGB}{226, 226, 226}
+\definecolor{sectiontext}{RGB}{105, 105, 105}
 
 % Formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.22in}
 \hypersetup{colorlinks=true, linkcolor=primary, urlcolor=primary}
-
-% Section formatting
-\titleformat{\section}
-{\color{primary}\normalsize\bfseries\uppercase}
-{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{6pt}{3pt}
+\columnratio{0.72}
+\emergencystretch=2em
 
 % Custom commands
-\newcommand{\resumeItem}[1]{\item[\textcolor{primary}{\textbullet}] #1}
+\newcommand{\resumeSection}[1]{%
+    \vspace{3pt}%
+    \noindent\colorbox{sectionbg}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+            \color{sectiontext}\fontsize{10.2}{10.4}\selectfont\bfseries\MakeUppercase{#1}%
+        }%
+    }\par\vspace{2pt}%
+}
+\newcommand{\resumeItem}[1]{\item #1}
 \newcommand{\skillCategory}[2]{\textbf{#1:} #2}
 
 \begin{document}
 
 % Header
-\begin{center}
-    {\LARGE\bfseries Manoj Kumar}\\[4pt]
+{\centering
+    {\huge Manoj Kumar}\\[3pt]
     \small
     \faPhone\ +91 9896407925 \quad
     \faEnvelope\ \href{mailto:manojkumar.nvsd@gmail.com}{manojkumar.nvsd@gmail.com} \quad
     \faLinkedin\ \href{https://linkedin.com/in/manoj-kumar9896}{manoj-kumar9896} \quad
-    \faGithub\ \href{https://github.com/manoj9896}{manoj9896}
-\end{center}
+    \faGithub\ \href{https://github.com/manoj9896}{manoj9896}\par
+}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{2pt}
+
+\begin{paracol}{2}
+\RaggedRight
+\fontsize{8}{8.85}\selectfont
 
 % Summary
-\section{Summary}
-\small
+\resumeSection{Summary}
 AI Full-stack software engineer with 3+ years building scalable cloud applications. Expertise in microservices architecture, CI/CD pipelines, Kubernetes orchestration, and enterprise SaaS. Proven track record of designing reliable, multi-tenant services processing millions of events across distributed systems.
 
 % Work Experience
-\section{Work Experience}
-\small
+\resumeSection{Work Experience}
 
 \textbf{Senior Developer} \hfill April 2025 -- Present\\
 \textit{SAP Labs India -- Bangalore}
-\begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Designed and deployed \textbf{containerized microservices} on Kubernetes (Kyma) using Docker—built CI/CD pipelines with GitHub Actions for automated testing, image builds, and production deployments.}
     \resumeItem{Built \textbf{multi-tenant SaaS platform} for contract lifecycle management using Java, Spring Boot, and Apache Kafka—implemented tenant isolation, event-driven architecture, and resilient service communication.}
     \resumeItem{Created generic \textbf{OData client framework} with connection pooling and BTP Destination Service integration—enabled consistent API consumption across 4 SAP S/4HANA services.}
@@ -60,7 +73,7 @@ AI Full-stack software engineer with 3+ years building scalable cloud applicatio
 \vspace{1pt}
 \textbf{Developer} \hfill April 2024 -- March 2025\\
 \textit{SAP Labs India -- Bangalore}
-\begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Architected \textbf{5-stage ETL pipeline} with Celery and Redis for async document processing—scaled to handle 10,000+ requests across 1,000+ chatbot deployments with fault-tolerant retry mechanisms.}
     \resumeItem{Built \textbf{Jenkins CI/CD pipelines} for automated builds, testing, and deployments—created VitePress documentation enabling teams to independently maintain and extend platform capabilities.}
     \resumeItem{Integrated Microsoft Graph API with MSAL authentication for SharePoint connectivity—designed secure credential management and token refresh workflows for enterprise document access.}
@@ -69,7 +82,7 @@ AI Full-stack software engineer with 3+ years building scalable cloud applicatio
 \vspace{1pt}
 \textbf{Associate Developer} \hfill Aug 2022 -- March 2024\\
 \textit{SAP Labs India -- Bangalore}
-\begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Developed \textbf{Node.js/Express microservices} with PostgreSQL backend—implemented user management, session handling, and GDPR-compliant data processing serving 200+ users.}
     \resumeItem{Built \textbf{cloud service integrations} with Azure Cognitive Services and AWS S3—designed reliable async pipelines for media processing with error handling and monitoring.}
     \resumeItem{Created \textbf{React frontend} with real-time WebSocket connections—implemented state management and responsive UI across multiple deployment environments.}
@@ -78,40 +91,47 @@ AI Full-stack software engineer with 3+ years building scalable cloud applicatio
 \vspace{1pt}
 \textbf{Software Engineer Intern} \hfill May 2022 -- July 2022\\
 \textit{Peakflo (Fintech)}
-\begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Built \textbf{dynamic pricing calculator} integrated with payment volume APIs—enabled real-time pricing adjustments directly within revenue operations workflows.}
     \resumeItem{Enhanced search and filtering functionality with optimized database queries for payment management across customer segments.}
 \end{itemize}
 
 % Projects
-\section{Key Projects}
-\small
+\resumeSection{Key Projects}
 
-\textbf{S/4HANA Reference Agents} \hfill \textit{Python, LangGraph, Docker, Kubernetes/Kyma, GitHub Actions}
-\begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+\textbf{S/4HANA Reference Agents}\\
+\textit{Python, LangGraph, Docker, Kubernetes/Kyma, GitHub Actions}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Developed enterprise agents serving as reference implementations for SAP Joule—created Business Partner Agent and Procurement Intelligence Agent, exposed SAP S/4HANA APIs as MCP Servers.}
     \resumeItem{Designed A2A Protocol, configured CI/CD pipeline using GitHub Actions automating Docker image builds and Kyma/Kubernetes deployments with OpenTelemetry instrumentation for monitoring.}
 \end{itemize}
 
 \vspace{1pt}
- \textbf{Enterprise AI Microservice (Procurement AI)} \hfill \textit{Java, Spring Boot, SAP AI Core, Kafka, BTP}
-  \begin{itemize}[leftmargin=*, nosep, topsep=1pt]
+ \textbf{Enterprise AI Microservice (Procurement AI)}\\
+ \textit{Java, Spring Boot, SAP AI Core, Kafka, BTP}
+  \begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
     \resumeItem{Built \textbf{job scheduling infrastructure} for automated data grounding—implemented clean interface separation with HTTP client abstraction and async Spring Boot processing for BTP Job Scheduler Service.}
     \resumeItem{Developed \textbf{multi-tenant contract AI service}—implemented Kafka consumers for real-time indexing, tenant-aware event processing, and SAP AI Core SDK integration for LLM orchestration and RAG.}
 \end{itemize}
 
+\switchcolumn
+\RaggedRight
+\fontsize{8}{8.85}\selectfont
+
+% Education
+\resumeSection{Education}
+\textbf{Indian Institute of Technology, Kanpur}\\
+B.Tech in Electrical Engineering (GPA: 8.5/10)\\
+2018 -- 2022
+
 % Skills
-\section{Technical Skills}
-\small
+\resumeSection{Technical Skills}
 \skillCategory{Languages}{Python, Java, TypeScript, JavaScript, SQL, C++}\\[1pt]
 \skillCategory{Cloud \& DevOps}{Kubernetes/Kyma, Docker, GitHub Actions, Jenkins, CI/CD Pipelines, Azure, AWS, SAP BTP}\\[1pt]
 \skillCategory{Backend}{Spring Boot, FastAPI, Express, Node.js, REST APIs, OData, GraphQL, Microservices}\\[1pt]
 \skillCategory{Data \& Messaging}{PostgreSQL, SAP HANA, Redis, Apache Kafka, Celery, ETL Pipelines}\\[1pt]
 \skillCategory{Frontend}{React, TypeScript, Electron, WebSockets, HTML/CSS}
 
-% Education
-\section{Education}
-\small
-\textbf{Indian Institute of Technology, Kanpur} -- B.Tech in Electrical Engineering (GPA: 8.5/10) \hfill 2018 -- 2022
+\end{paracol}
 
 \end{document}
