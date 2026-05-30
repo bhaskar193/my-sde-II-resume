@@ -8,8 +8,6 @@
 \usepackage{fontawesome5}
 \usepackage{xcolor}
 \usepackage{parskip}
-\usepackage{paracol}
-\usepackage{ragged2e}
 \usepackage{microtype}
 
 % Colors
@@ -19,9 +17,7 @@
 % Formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\columnsep}{0.22in}
 \hypersetup{colorlinks=true, linkcolor=primary, urlcolor=primary}
-\columnratio{0.72}
 \emergencystretch=2em
 
 % Section formatting
@@ -46,8 +42,19 @@
 \end{center}
 \vspace{6pt}
 
-\begin{paracol}{2}
-\RaggedRight
+% Education
+\section{Education}
+\small
+\textbf{IIT Kanpur}\\
+Bachelor of Technology, Mechanical Engineering \textbar\ GPA 8.1/10
+
+% Skills
+\section{Technical Skills}
+\small
+\skillCategory{Computer Languages}{C, C++, Java, JavaScript, Python, Dart}\\[1pt]
+\skillCategory{Web \& Mobile}{HTML, CSS, React, React Native, Next.js, Flutter}\\[1pt]
+\skillCategory{Backend \& Databases}{REST APIs, CRUD APIs, Node.js, Spring Boot, MySQL, Firebase}\\[1pt]
+\skillCategory{Tools}{Oracle VBS, Android Studio, Git, Postman, Codex}
 
 % Work Experience
 \section{Work Experience}
@@ -97,23 +104,6 @@
     \resumeItem{Developed a \textbf{fully automated scoring system} for real-time match updates.}
 \end{itemize}
 
-\switchcolumn
-\RaggedRight
-
-% Education
-\section{Education}
-\small
-\textbf{IIT Kanpur}\\
-Bachelor of Technology, Mechanical Engineering \textbar\ GPA 8.1/10
-
-% Skills
-\section{Technical Skills}
-\small
-\skillCategory{Computer Languages}{C, C++, Java, JavaScript, Python, Dart}\\[1pt]
-\skillCategory{Web \& Mobile}{HTML, CSS, React, React Native, Next.js, Flutter}\\[1pt]
-\skillCategory{Backend \& Databases}{REST APIs, CRUD APIs, Node.js, Spring Boot, MySQL, Firebase}\\[1pt]
-\skillCategory{Tools}{Oracle VBS, Android Studio, Git, Postman, Codex}
-
 % Achievements
 \section{Achievements}
 \small
@@ -124,7 +114,5 @@ Bachelor of Technology, Mechanical Engineering \textbar\ GPA 8.1/10
     \resumeItem{Awarded \textbf{Institute Silver Medal} for achieving a Gold Medal and breaking the meet record in the Inter-IIT Sports Meet.}
     \resumeItem{Received \textbf{Sports Scholarship} from the Games and Sports Council, IIT Kanpur for two consecutive years.}
 \end{itemize}
-
-\end{paracol}
 
 \end{document}
