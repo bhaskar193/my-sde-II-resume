@@ -5,10 +5,14 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{fontawesome5}
 \usepackage{xcolor}
 \usepackage{parskip}
 \usepackage{microtype}
+% NOTE: fontawesome5 intentionally dropped -- it required a network package
+% fetch that wasn't available when this was tailored/compiled. Header icons
+% below were replaced with plain "|" separators so this compiles anywhere
+% with just a base TeX Live install. Re-add it and swap separators back for
+% \faPhone/\faEnvelope/\faLinkedin if you'd rather keep the icon style.
 
 % Colors
 \definecolor{primary}{RGB}{99, 91, 255}
@@ -35,10 +39,11 @@
 % Header
 \begin{center}
     {\LARGE\bfseries Bhaskar Lamba}\\[4pt]
+    {\small\color{primary}\bfseries Backend Software Engineer --- Java \& REST APIs \textbar\ Production Systems at Scale}\\[3pt]
     \small
-    \faPhone\ +91 9306505417 \quad
-    \faEnvelope\ \href{mailto:bhaskarlamba@gmail.com}{bhaskarlamba@gmail.com} \quad
-    \faLinkedin\ \href{https://www.linkedin.com/in/bhaskar-lamba-5268391b2/}{linkedin.com/in/bhaskar-lamba-5268391b2}
+    +91 9306505417 \quad\textbar\quad
+    \href{mailto:bhaskarlamba@gmail.com}{bhaskarlamba@gmail.com} \quad\textbar\quad
+    \href{https://www.linkedin.com/in/bhaskar-lamba-5268391b2/}{linkedin.com/in/bhaskar-lamba-5268391b2}
 \end{center}
 \vspace{6pt}
 
@@ -55,18 +60,19 @@ Bachelor of Technology, Mechanical Engineering
 \textbf{Senior Software Applications Engineer} \hfill Aug'24 -- Present\\
 \textit{Oracle India Pvt. Ltd.}
 \begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
-    \resumeItem{Drive full-stack ownership of two enterprise talent management products --- \textbf{Succession Management} and \textbf{Talent Review} --- serving \textbf{400+ business customers}, covering UI, backend, and production reliability.}
-    \resumeItem{Independently scoped and delivered \textbf{30+ product features} end-to-end, consistently meeting tight delivery timelines as short as \textbf{3--4 days}.}
-    \resumeItem{Designed and shipped a \textbf{customer-facing AI agent} for the \textbf{Succession Management} product, enabling users to perform core workflows --- succession plan creation, team succession status queries, and criticality analysis --- through natural language, reducing manual navigation overhead.}
-    \resumeItem{Serve as a go-to engineer for code reviews and knowledge transfers within a \textbf{5-member} team, maintaining high product availability and team alignment.}
+    \resumeItem{Own backend architecture, REST API design, and production reliability for two enterprise-scale talent management systems --- \textbf{Succession Management} and \textbf{Talent Review} --- serving \textbf{400+ business customers}.}
+    \resumeItem{Independently scoped and delivered \textbf{30+ backend features and REST APIs} end-to-end, consistently meeting tight delivery timelines as short as \textbf{3--4 days}.}
+    \resumeItem{Designed and built the backend and API layer for a \textbf{customer-facing AI agent} on the \textbf{Succession Management} product, powering natural-language workflows --- succession plan creation, team succession status queries, and criticality analysis.}
+    \resumeItem{Serve as the team's go-to engineer for root-cause analysis and code reviews across a \textbf{5-member} team, maintaining high system availability.}
+    \resumeItem{Built and maintained \textbf{Docker} images/containers used by the development team for local testing and debugging, standardizing environment setup and reproducibility across the team.}
 \end{itemize}
 
 \vspace{1pt}
 \textbf{Applications Engineer} \hfill Jun'22 -- Aug'24\\
 \textit{Oracle India Pvt. Ltd.}
 \begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
-    \resumeItem{Contributed to feature development across \textbf{Succession Management} and \textbf{Talent Review} enterprise products, building UI components and \textbf{REST APIs} as part of a cross-functional team.}
-    \resumeItem{Orchestrated the migration of \textbf{\textasciitilde90\%} of the product from a legacy Java-based system to a modern web architecture, modernizing the platform for enterprise customers.}
+    \resumeItem{Built and maintained \textbf{REST APIs and backend services} for the Succession Management and Talent Review enterprise products as part of a cross-functional engineering team.}
+    \resumeItem{Led the migration of \textbf{\textasciitilde90\%} of the product from a legacy Java-based backend to a modern service architecture, improving system performance for enterprise customers.}
 \end{itemize}
 
 \vspace{1pt}
@@ -83,12 +89,11 @@ Bachelor of Technology, Mechanical Engineering
 \section{Projects}
 \small
 
-\textbf{Online Fitness Rehab Coaching Platform} \hfill \href{https://workout-planner-app-e7087.firebaseapp.com/}{\faLink}\\
-\textit{Firebase, Codex}
+\textbf{DistriKV --- Distributed Key-Value Store} \hfill \textit{Go, Docker}
 \begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
-    \resumeItem{Built and deployed a \textbf{Firebase web app} to streamline \textbf{online fitness rehab} and coaching workflows, enabling coaches to send \textbf{structured workouts} and collect client feedback.}
-    \resumeItem{Collaborated with \textbf{Codex} to rapidly iterate on product features and launched the app live on \textbf{Firebase within a single day}.}
-    \resumeItem{Use the platform actively with \textbf{3 coaches} and \textbf{20+ clients} to manage workout delivery, feedback loops, and rehab/coaching operations.}
+    \resumeItem{Built a replicated key-value store in \textbf{Go} with a leader--follower architecture and synchronous replication across a \textbf{3-node cluster}.}
+    \resumeItem{Containerized the cluster with \textbf{Docker Compose}; implemented follower-timeout handling and validated failure behavior under manual chaos testing.}
+    \resumeItem{Documented consistency/availability trade-offs and a production hardening path (Raft-based leader election, WAL, key-hash sharding).}
 \end{itemize}
 
 \vspace{1pt}
@@ -105,10 +110,10 @@ Bachelor of Technology, Mechanical Engineering
 % Skills
 \section{Technical Skills}
 \small
-\skillCategory{Programming Languages}{C, C++, Java, Go, JavaScript, Python, Dart}\\[1pt]
-\skillCategory{Web \& Mobile}{HTML, CSS, React, React Native, Next.js}\\[1pt]
-\skillCategory{Backend \& Databases}{REST APIs, CRUD APIs, Node.js, Spring Boot, MySQL, Firebase}\\[1pt]
-\skillCategory{Tools}{Oracle VBS, Android Studio, Git, Postman, Codex}
+\skillCategory{Languages}{C, C++, Java, Go, JavaScript, Python, Dart}\\[1pt]
+\skillCategory{Backend \& APIs}{REST APIs, CRUD APIs, Spring Boot, Node.js, MySQL}\\[1pt]
+\skillCategory{Systems \& Tools}{Docker, Git, Postman, Oracle VBS, Android Studio}\\[1pt]
+\skillCategory{Web \& Mobile}{HTML, CSS, React, React Native, Next.js, Firebase}
 
 % Achievements
 \section{Achievements}
