@@ -1,0 +1,127 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=0.36in, top=0.25in, bottom=0.25in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{graphicx}
+% NOTE: fontawesome5 intentionally dropped -- it requires a network package
+% fetch that isn't always available. Project links use small PNG icon glyphs
+% instead (see assets/icons/), same approach as the master resume.
+
+% Icon-link helper: \iconlink{image path}{url}
+\newcommand{\iconlink}[2]{\href{#2}{\raisebox{-0.18em}{\includegraphics[height=0.95em]{#1}}}}
+
+% Colors
+\definecolor{primary}{RGB}{99, 91, 255}
+\definecolor{darktext}{RGB}{50, 50, 50}
+
+% Formatting
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hypersetup{colorlinks=true, linkcolor=primary, urlcolor=primary}
+\emergencystretch=2em
+
+% Section formatting
+\titleformat{\section}
+{\color{primary}\fontsize{10.8}{13}\selectfont\bfseries\uppercase}
+{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item[\textcolor{primary}{\textbullet}] #1}
+\newcommand{\skillCategory}[2]{\textbf{#1:} #2}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE\bfseries Bhaskar Lamba}\\[4pt]
+    {\small\color{primary}\bfseries Full-Stack Software Engineer --- Distributed Systems, REST APIs \& Production AI Agents}\\[3pt]
+    \small
+    +91 9306505417 \quad\textbar\quad
+    \href{mailto:bhaskarlamba@gmail.com}{bhaskarlamba@gmail.com} \quad\textbar\quad
+    \href{https://www.linkedin.com/in/bhaskar-lamba-5268391b2/}{linkedin.com/in/bhaskar-lamba-5268391b2}
+\end{center}
+\vspace{6pt}
+
+% Education
+\section{Education}
+\small
+\textbf{IIT Kanpur} \hfill \raisebox{-0.5\baselineskip}{GPA 8.1/10}\\
+Bachelor of Technology, Mechanical Engineering
+
+% Work Experience
+\section{Work Experience}
+\small
+
+\textbf{Senior Software Applications Engineer} \hfill Aug'24 -- Present\\
+\textit{Oracle India Pvt. Ltd.}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Own full-stack delivery of two enterprise talent management products --- \textbf{Succession Management} and \textbf{Talent Review} --- serving \textbf{400+ business customers}, covering UI, backend, \textbf{REST APIs}, data models, and production reliability.}
+    \resumeItem{Independently scoped and delivered \textbf{30+ features} end-to-end --- from API and data-model design through testing and release --- meeting delivery timelines as short as \textbf{3--4 days}.}
+    \resumeItem{Designed, built, and shipped a customer-facing \textbf{AI agent} for Succession Management on \textbf{Oracle AI Studio}: LLM-driven natural-language workflows backed by a custom tool-calling API layer.}
+    \resumeItem{Building a second \textbf{AI agent}, Talent Review Analyst (in development, pre-release): chat-driven retrieval, summarization, and prioritization over talent-review data, integrated with backend Business Object APIs, with graceful fallback for unsupported/ambiguous queries.}
+    \resumeItem{Built and maintained \textbf{Docker} images/containers for the development team's local testing and debugging, standardizing environment reproducibility.}
+\end{itemize}
+
+\vspace{1pt}
+\textbf{Applications Engineer} \hfill Jun'22 -- Aug'24\\
+\textit{Oracle India Pvt. Ltd.}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Contributed to feature development across \textbf{Succession Management} and \textbf{Talent Review} enterprise products, building \textbf{REST APIs} and UI components as part of a cross-functional team.}
+    \resumeItem{Orchestrated the migration of the \textbf{entire product} from a legacy Java-based system to a modern web architecture, modernizing the platform for enterprise customers.}
+    \resumeItem{Delivered a critical \textbf{date-and-time} enhancement to the Talent Review meeting-date field, evolving the underlying DB column from date-only to timestamp via a \textbf{Modify Column Strategy} on \textbf{Oracle Edition-Based Redefinition (EBR)} --- a \textbf{zero-downtime} schema-change pattern that migrated production data with no service interruption.}
+\end{itemize}
+
+\vspace{1pt}
+\textbf{Project Intern (Pre-Placement Offer)} \hfill Jun'21 -- Jul'21\\
+\textit{Oracle India Pvt. Ltd.}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Designed conversation flows within a \textbf{chatbot} and integrated \textbf{REST APIs} to retrieve and serve data in real time, managing the project end-to-end within a four-week timeline.}
+\end{itemize}
+
+% Projects
+\section{Projects}
+\small
+
+\textbf{DistriKV --- Distributed Key-Value Store} \hfill \iconlink{../../assets/icons/github.png}{https://github.com/bhaskar193/distrikv} \\
+\textit{Go, Docker}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Built a thread-safe, replicated key-value store in \textbf{Go} --- leader-follower architecture, synchronous replication over HTTP/JSON with per-follower timeout --- verified race-free under \textbf{\texttt{go test -race}} with concurrent load.}
+    \resumeItem{Containerized a \textbf{3-node cluster} with Docker Compose; chaos-tested failure behavior via \texttt{docker stop}, uncovering and documenting a DNS-resolution failure mode and a full-data-loss-on-restart limitation (no WAL).}
+    \resumeItem{Documented the consistency/availability trade-offs and a production hardening path (Raft-based leader election, WAL-based crash recovery, key-hash sharding).}
+\end{itemize}
+
+\vspace{1pt}
+\textbf{Online Fitness Rehab Coaching Platform} \hfill \iconlink{../../assets/icons/link.png}{https://workout-planner-app-e7087.firebaseapp.com/}\\
+\textit{Firebase, Codex}
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Built and deployed a \textbf{full-stack Firebase web app} end-to-end --- UI, backend data model, and hosting --- to streamline \textbf{online fitness rehab} and coaching workflows.}
+    \resumeItem{Use the platform actively with \textbf{10+ coaches} and \textbf{30+ clients} to manage workout delivery, feedback loops, and rehab/coaching operations.}
+\end{itemize}
+
+% Skills
+\section{Technical Skills}
+\small
+\skillCategory{Languages}{Java, Go, C, C++, JavaScript, Python, Dart}\\[1pt]
+\skillCategory{Backend \& APIs}{REST APIs, CRUD APIs, Spring Boot, Node.js, MySQL, Firebase}\\[1pt]
+\skillCategory{Distributed Systems \& Concurrency}{Leader-Follower Replication, Concurrency (goroutines, mutexes, sync.RWMutex), Multi-Node Docker Compose Orchestration}\\[1pt]
+\skillCategory{Web \& Mobile}{React, React Native, Next.js, HTML, CSS}\\[1pt]
+\skillCategory{Tools}{Docker, Git, Postman, Android Studio}
+
+% Achievements
+\section{Achievements}
+\small
+\begin{itemize}[leftmargin=1.05em, nosep, topsep=0pt, itemsep=0pt, parsep=0pt]
+    \resumeItem{Secured \textbf{AIR-1558} in JEE (Advanced) 2018 among approx. 2 lakh candidates.}
+    \resumeItem{Won IIT Kanpur's \textbf{Outstanding Freshman Award} for exceptional performance, given to only \textbf{2 students} from the batch.}
+    \resumeItem{Awarded \textbf{Institute Silver Medal} for achieving a Gold Medal and breaking the meet record in the Inter-IIT Sports Meet.}
+    \resumeItem{Received \textbf{Sports Scholarship} from the Games and Sports Council, IIT Kanpur for two consecutive years.}
+\end{itemize}
+
+\end{document}
